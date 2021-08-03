@@ -1,0 +1,60 @@
+body {
+    margin: 0px;
+}
+
+.gamewindow {
+    height: 100vh;
+    width: 100vw;
+    background-color: grey;
+}
+
+.titletext {
+    font-size: 6rem;
+    width: fit-content;
+    margin: auto;
+    padding-top: 10vh;
+}
+
+.usernametext {
+    font-size: 2rem;
+    font-weight: 520;
+    width: fit-content;
+    margin: auto;
+    padding-top: 20vh;
+}
+
+.passwordtext {
+    font-size: 2rem;
+    font-weight: 520;
+    width: fit-content;
+    margin: auto;
+    padding-top: 10vh;
+}
+
+.usernamebox {
+    height: 30px;
+}
+
+.passwordbox {
+    height: 30px;
+}
+
+.loginbutton {
+    width: 150px;
+    height: 50px;
+    font-size: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+/* Helpers */
+
+.center{
+    width: fit-content;
+    margin: auto;
+}
+
+.paddingtop {
+    padding-top: 50px;
+}
