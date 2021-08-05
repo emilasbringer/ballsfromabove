@@ -6,6 +6,13 @@ body {
     height: 100vh;
     width: 100vw;
     background-color: grey;
+    overflow: hidden;
+}
+
+.titlescreen {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
 }
 
 .titletext {
@@ -47,7 +54,19 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.playerapperance {
+    position: fixed;
+    top: 50%;
+    left: 47.5%;
+    width: 100px;
+    height: 100px;
+    background: rgb(74, 74, 88);
+    border-radius: 50px;
+}
 
+#map {
+    display: none;
+}
 
 /* Helpers */
 
