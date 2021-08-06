@@ -71,7 +71,7 @@ function initilize() {
 
 function initilizeElements() {
     map.style.display = "block";
-    map.style.width = "150%"
+    map.style.width = "300%";
 
     var playerhead = document.createElement("div");
     gamewindow.appendChild(playerhead);
@@ -120,6 +120,7 @@ function playerMovement() {
     var moveammountx = mapcords[0];
     var moveammounty = mapcords[1];
     map.style.transform = "translate(" + moveammountx + "px, " + moveammounty + "px)";
+
 
     document.querySelector("#cuck").style.transform = "rotate(" + Math.atan2((pastmousexchords - 955),-(pastmouseychords -520)) + "rad)";
 
