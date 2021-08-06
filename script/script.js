@@ -17,6 +17,7 @@ var pastmouseychords;
 var keypresseddown;
 var time;
 var deltatime;
+var playerMs = 5;
 
 var movedirection = [
     true,
@@ -89,19 +90,21 @@ function initilizeElements() {
 function uniKeyCode(event) {
     var key = event.keyCode;
     document.getElementById("keylogger").innerHTML = "Keycode: " + key;
-    if(key == 87) {movedirection[1] = true; movedirection[0] = false;}
-    if(key == 83) {movedirection[2] = true; movedirection[0] = false;}
-    if(key == 65) {movedirection[3] = true; movedirection[0] = false;}
-    if(key == 68) {movedirection[4] = true; movedirection[0] = false;}
+    if(key == 87) {movedirection[1] = true; movedirection[0] = false;};
+    if(key == 83) {movedirection[2] = true; movedirection[0] = false;};
+    if(key == 65) {movedirection[3] = true; movedirection[0] = false;};
+    if(key == 68) {movedirection[4] = true; movedirection[0] = false;};
+    if(key == 16) {playerMs = 14};
 }
 
 function logkeyup(event) {
-    var keyup = event.keyCode;1
+    var keyup = event.keyCode;
     document.getElementById("keyuplogger").innerHTML = "Keycode: " + keyup;
     if(keyup == 87) {movedirection[1] = false; movedirection[0] = true;}
     if(keyup == 83) {movedirection[2] = false; movedirection[0] = true;}
     if(keyup == 65) {movedirection[3] = false; movedirection[0] = true;}
     if(keyup == 68) {movedirection[4] = false; movedirection[0] = true;}
+    if(keyup == 16) {playerMs = 8};
   }
 
 window.addEventListener("mousemove", (event) => {
@@ -110,13 +113,14 @@ window.addEventListener("mousemove", (event) => {
 });
 
 function playerMovement() {
-    if(movedirection[1] == true) {mapcords[1] += 5} 
-    if(movedirection[2] == true) {mapcords[1] -= 5} 
-    if(movedirection[3] == true) {mapcords[0] += 5} 
-    if(movedirection[4] == true) {mapcords[0] -= 5} 
+    if(movedirection[1] == true) {mapcords[1] += playerMs} 
+    if(movedirection[2] == true) {mapcords[1] -= playerMs} 
+    if(movedirection[3] == true) {mapcords[0] += playerMs} 
+    if(movedirection[4] == true) {mapcords[0] -= playerMs} 
     var moveammountx = mapcords[0];
     var moveammounty = mapcords[1];
     map.style.transform = "translate(" + moveammountx + "px, " + moveammounty + "px)";
 
-    document.querySelector("#cuck").style.transform = "rotate(" + Math.atan(pastmousexchords - 705,-(pastmouseychords -520)) + "rad)";
+    document.querySelector("#cuck").style.transform = "rotate(" + Math.atan2((pastmousexchords - 955),-(pastmouseychords -520)) + "rad)";
+
 }
