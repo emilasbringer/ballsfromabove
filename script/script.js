@@ -1,5 +1,6 @@
 const gamewindow = document.querySelector("#gamewindow");
 var map = document.querySelector("#map");
+var keylogger = document.querySelector("#keylogger");
 
 var gamestate = 0;
 var fps = 30;
@@ -10,35 +11,33 @@ var passwordInput;
 var username = "";
 var password = "";
 var tick = 0;
+var mapcords = [0,0];
+var pastmousexchords;
+var pastmouseychords;
+var keypresseddown;
+var time;
+var deltatime;
 
-const directions = {
-    up: "up",
-    down: "down",
-    left: "left",
-    right: "right",
- }
+var movedirection = [
+    true,
+    false,
+    false,
+    false,
+    false,
+];
 
-const keys = {
-    38: directions.up,
-    37: directions.left,
-    39: directions.right,
-    40: directions.down,
- }
- 
- document.addEventListener("keydown", (e) => {
-    var dir = keys[e.which];
-    if (dir && held_directions.indexOf(dir) === -1) {
-       held_directions.unshift(dir)
-    }
- })
- 
- document.addEventListener("keyup", (e) => {
-    var dir = keys[e.which];
-    var index = held_directions.indexOf(dir);
-    if (index > -1) {
-       held_directions.splice(index, 1)
-    }
- });
+
+function uniKeyCode(event) {
+    console.log("attempting to log key")
+    var key = event.keyCode;
+    keylogger.innerHTML = "The Unicode KEY code is: " + key;
+  }
+
+function logkeyup(event) {
+    console.log("attempting to log key")
+    var key = event.keyCode;
+    keylogger.innerHTML = "The Unicode KEY code is: " + key;
+}
 
 if(gamestate == 0) {    
     document.createElement("titlediv");
@@ -56,20 +55,69 @@ function checklogin() {
         document.getElementById("titlescreenid").remove();
         initilize();
         isRunning = true;
+        console.log(isRunning);
     }
 }
 
 function initilize() {
     console.log("initilizing game!")
     initilizeElements()
+    setInterval(() => {
+        tick++;
+        playerMovement();
+    }, 1000/fps);
 }
 
 function initilizeElements() {
     map.style.display = "block";
-    var player = document.createElement("div");
-    gamewindow.appendChild(player);
-    player.setAttribute("class", "playerapperance")
+    map.style.width = "150%"
+
+    var playerhead = document.createElement("div");
+    gamewindow.appendChild(playerhead);
+    playerhead.setAttribute("class", "playerapperance")
+    playerhead.setAttribute("id", "cuck")
+
+    var playerpoint1 = document.createElement("div");
+    playerhead.appendChild(playerpoint1);
+    playerpoint1.setAttribute("class", "playerpointcss1")
+
+    var playerpoint2 = document.createElement("div");
+    playerhead.appendChild(playerpoint2);
+    playerpoint2.setAttribute("class", "playerpointcss2")
 }
 
+function uniKeyCode(event) {
+    var key = event.keyCode;
+    document.getElementById("keylogger").innerHTML = "Keycode: " + key;
+    if(key == 87) {movedirection[1] = true; movedirection[0] = false;}
+    if(key == 83) {movedirection[2] = true; movedirection[0] = false;}
+    if(key == 65) {movedirection[3] = true; movedirection[0] = false;}
+    if(key == 68) {movedirection[4] = true; movedirection[0] = false;}
+}
 
+function logkeyup(event) {
+    var keyup = event.keyCode;1
+    document.getElementById("keyuplogger").innerHTML = "Keycode: " + keyup;
+    if(keyup == 87) {movedirection[1] = false; movedirection[0] = true;}
+    if(keyup == 83) {movedirection[2] = false; movedirection[0] = true;}
+    if(keyup == 65) {movedirection[3] = false; movedirection[0] = true;}
+    if(keyup == 68) {movedirection[4] = false; movedirection[0] = true;}
+  }
 
+window.addEventListener("mousemove", (event) => {
+    pastmousexchords = event.clientX;
+    pastmouseychords = event.clientY;
+});
+
+function playerMovement() {
+    if(movedirection[1] == true) {mapcords[1] += 5} 
+    if(movedirection[2] == true) {mapcords[1] -= 5} 
+    if(movedirection[3] == true) {mapcords[0] += 5} 
+    if(movedirection[4] == true) {mapcords[0] -= 5} 
+    var moveammountx = mapcords[0];
+    var moveammounty = mapcords[1];
+    map.style.transform = "translate(" + moveammountx + "px, " + moveammounty + "px)";
+
+    document.querySelector("#cuck").style.transform = "rotate(" + Math.atan(pastmousexchords - 705,-(pastmouseychords -520)) + "rad)";
+    console.log("rotating " + Math.atan2(pastmousexchords - 705,-(pastmouseychords -520)));
+}

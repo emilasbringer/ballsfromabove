@@ -64,8 +64,40 @@ body {
     border-radius: 50px;
 }
 
+.playerpointcss1 {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 50px;
+    margin: 25% 0% 0% 60%;
+    background: #008cff;
+}
+
+.playerpointcss2 {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 50px;
+    margin: 25% 0% 0% 30%;
+    background: #008cff;
+}
+
 #map {
     display: none;
+}
+
+#keylogger {
+    position: fixed;
+    top: 80vh;
+    left: 80vw;
+    font-size: 2rem;
+}
+
+#keyuplogger {
+    position: fixed;
+    top: 85vh;
+    left: 80vw;
+    font-size: 2rem;
 }
 
 /* Helpers */

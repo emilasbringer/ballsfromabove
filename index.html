@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <title>The Ethereal Valley</title>
+    <link rel="icon" href="/assets/icongame.png">
 </head>
-<body>
-    <div class="gamewindow" id="gamewindow">
+<body onkeydown="uniKeyCode(event)" onkeyup="logkeyup(event)">
+    <div class="gamewindow" id="gamewindow" >
         <div class="titlescreen" id="titlescreenid">
             <div class="titletextdiv">
                 <div class="titletext">The Ethereal Valley</div>
@@ -25,9 +26,10 @@
         <div class="center paddingtop" onclick="checklogin()"><button class="loginbutton">Login</button></div>
     </div>
     <img id="map" src="/assets/map.png">
+    <span id="keylogger"></span>
+    <span id="keyuplogger"></span>
     </div>
-    
+    <script src="script/script.js"></script>   
 </body>
 
-<script src="script/script.js"></script>
 </html>
