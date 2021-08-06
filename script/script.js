@@ -119,5 +119,4 @@ function playerMovement() {
     map.style.transform = "translate(" + moveammountx + "px, " + moveammounty + "px)";
 
     document.querySelector("#cuck").style.transform = "rotate(" + Math.atan(pastmousexchords - 705,-(pastmouseychords -520)) + "rad)";
-    console.log("rotating " + Math.atan2(pastmousexchords - 705,-(pastmouseychords -520)));
 }
