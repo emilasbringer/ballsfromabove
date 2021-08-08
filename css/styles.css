@@ -58,27 +58,9 @@ body {
     position: fixed;
     top: 50%;
     left: 47.5%;
+    background: rgba(241, 33, 33, 0.836);
+    
 }
-
-.playerpointcss1 {
-    position: absolute;
-    width: 10%;
-    height: 10%;
-    border-radius: 50px;
-    margin: 25% 0% 0% 60%;
-    background: #008cff;
-}
-
-.playerpointcss2 {
-    position: absolute;
-    width: 10%;
-    height: 10%;
-    border-radius: 50px;
-    margin: 25% 0% 0% 30%;
-    background: #008cff;
-}
-
-
 
 #map {
     display: none;

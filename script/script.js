@@ -2,7 +2,7 @@ const gamewindow = document.querySelector("#gamewindow");
 var map = document.querySelector("#map");
 var keylogger = document.querySelector("#keylogger");
 var playerCharacterTexture = document.createElement("img");
-playerCharacterTexture.setAttribute("src", "assets/player/knightFrontView.png")
+playerCharacterTexture.setAttribute("src", "assets/player/bluecube.png")
 
 var gamestate = 0;
 var fps = 30;
@@ -20,6 +20,7 @@ var keypresseddown;
 var time;
 var deltatime;
 var playerMs = 5;
+var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
 
 var movedirection = [true,false,false,false,false];
 
@@ -74,20 +75,12 @@ function initilizeElements() {
     playerhead.setAttribute("class", "playerapperance")
     playerhead.setAttribute("id", "cuck")
 
-    var playerpoint1 = document.createElement("div");
-    playerhead.appendChild(playerpoint1);
-    playerpoint1.setAttribute("class", "playerpointcss1")
-
-    var playerpoint2 = document.createElement("div");
-    playerhead.appendChild(playerpoint2);
-    playerpoint2.setAttribute("class", "playerpointcss2")
-
     playerhead.appendChild(playerCharacterTexture);
+    playerCharacterTexture.style.width = "100%";
 }
 
 function uniKeyCode(event) {
     var key = event.keyCode;
-    document.getElementById("keylogger").innerHTML = "Keycode: " + key;
     if(key == 87) {movedirection[1] = true; movedirection[0] = false;};
     if(key == 83) {movedirection[2] = true; movedirection[0] = false;};
     if(key == 65) {movedirection[3] = true; movedirection[0] = false;};
@@ -97,7 +90,6 @@ function uniKeyCode(event) {
 
 function logkeyup(event) {
     var keyup = event.keyCode;
-    document.getElementById("keyuplogger").innerHTML = "Keycode: " + keyup;
     if(keyup == 87) {movedirection[1] = false; movedirection[0] = true;}
     if(keyup == 83) {movedirection[2] = false; movedirection[0] = true;}
     if(keyup == 65) {movedirection[3] = false; movedirection[0] = true;}
@@ -120,6 +112,6 @@ function playerMovement() {
     map.style.transform = "translate(" + moveammountx + "px, " + moveammounty + "px)";
 
 
-    document.querySelector("#cuck").style.transform = "rotate(" + Math.atan2((pastmousexchords - 955),-(pastmouseychords -520)) + "rad)";
+    document.querySelector("#cuck").style.transform = "rotate(" + Math.atan2((pastmousexchords - 930),-(pastmouseychords -480)) + "rad)";
 
 }
