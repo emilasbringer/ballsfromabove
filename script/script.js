@@ -1,6 +1,8 @@
 const gamewindow = document.querySelector("#gamewindow");
 var map = document.querySelector("#map");
 var keylogger = document.querySelector("#keylogger");
+var playerCharacterTexture = document.createElement("img");
+playerCharacterTexture.setAttribute("src", "assets/player/knightFrontView.png")
 
 var gamestate = 0;
 var fps = 30;
@@ -19,13 +21,7 @@ var time;
 var deltatime;
 var playerMs = 5;
 
-var movedirection = [
-    true,
-    false,
-    false,
-    false,
-    false,
-];
+var movedirection = [true,false,false,false,false];
 
 
 function uniKeyCode(event) {
@@ -85,6 +81,8 @@ function initilizeElements() {
     var playerpoint2 = document.createElement("div");
     playerhead.appendChild(playerpoint2);
     playerpoint2.setAttribute("class", "playerpointcss2")
+
+    playerhead.appendChild(playerCharacterTexture);
 }
 
 function uniKeyCode(event) {
