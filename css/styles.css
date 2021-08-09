@@ -58,10 +58,8 @@ body {
     position: fixed;
     top: 50%;
     left: 47.5%;
-    width: 100px;
-    height: 100px;
-    background: rgb(74, 74, 88);
-    border-radius: 50px;
+    background: rgba(241, 33, 33, 0.836);
+    
 }
 
 .playerpointcss1 {
