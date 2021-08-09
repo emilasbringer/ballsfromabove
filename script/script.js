@@ -54,22 +54,23 @@ function checklogin() {
     console.log("The gamestate is " + gamestate)
     if (gamestate == 1) {
         document.getElementById("titlescreenid").remove();
-        initilize();
+        initialize();
         isRunning = true;
         console.log(isRunning);
     }
 }
 
-function initilize() {
-    console.log("initilizing game!")
-    initilizeElements()
+function initialize() {
+    console.log("initilizing game!");
+    initializeElements();
+    initializeUI();
     setInterval(() => {
         tick++;
         playerMovement();
     }, 1000/fps);
 }
 
-function initilizeElements() {
+function initializeElements() {
     map.style.display = "block";
     map.style.width = "150%"
 
@@ -87,6 +88,14 @@ function initilizeElements() {
     playerpoint2.setAttribute("class", "playerpointcss2")
 }
 
+function initializeUI(){
+    var healthbar = document.createElement("progress");
+    healthbar.setAttribute("class", "healthbarcss")
+    healthbar.setAttribute("value", "100");
+    healthbar.setAttribute("max", "100");
+    gamewindow.appendChild(healthbar);
+
+}
 function uniKeyCode(event) {
     var key = event.keyCode;
     document.getElementById("keylogger").innerHTML = "Keycode: " + key;

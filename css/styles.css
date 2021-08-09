@@ -82,7 +82,14 @@ body {
     background: #008cff;
 }
 
-
+.healthbarcss[value] {
+    position: fixed;
+    transform: rotate(-90deg);
+    top:60%;
+    left:45%;
+    height: 50%;
+    border-radius: %;
+}
 
 #map {
     display: none;
@@ -112,3 +119,4 @@ body {
 .paddingtop {
     padding-top: 50px;
 }
+
