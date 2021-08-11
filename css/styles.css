@@ -80,15 +80,45 @@ body {
     background: #008cff;
 }
 
-.healthbarcss[value] {
+.healthbarcss {
     position: fixed;
-    transform: rotate(-90deg);
-    top:60%;
-    left:45%;
-    height: 50%;
-    border-radius: %;
+    top:75%;
+    left:20%;
+    height: 10vw;
+    width: 10vw;
+    background-color:red;
+    border-radius: 50%;
 }
 
+.abilitycontainerulcss{
+    position: fixed;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    left:30%;
+    top:78vh;
+}
+.abilitycontainerlicss{
+    display: flex;
+}
+.abilityleftclickcss{
+    height: 6vw;
+    width: 6vw;
+    margin-left:6px;
+    background-color: gray;
+    border-style: solid;
+    border-width: 5px; 
+    border-color: black;
+}
+.abilityrightclickcss{
+    height: 6vw;
+    width: 6vw;
+    background-color: gray;
+    margin-left:6px;
+    border-style: solid;
+    border-width: 5px; 
+    border-color: black;
+}
 #map {
     display: none;
 }

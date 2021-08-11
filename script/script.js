@@ -81,12 +81,36 @@ function initializeElements() {
 }
 
 function initializeUI(){
-    var healthbar = document.createElement("progress");
-    healthbar.setAttribute("class", "healthbarcss")
-    healthbar.setAttribute("value", "100");
-    healthbar.setAttribute("max", "100");
-    gamewindow.appendChild(healthbar);
 
+    const healthbar = document.createElement("div");
+    healthbar.setAttribute("class", "healthbarcss");
+
+    const abilitycontainerul = document.createElement("ul");
+    abilitycontainerul.setAttribute("class", "abilitycontainerulcss");
+
+    const abilitycontainerli = document.createElement("li");
+    abilitycontainerli.setAttribute("class", "abilitycontainerlicss");
+
+    const abilityleftclick = document.createElement("div");
+    abilityleftclick.setAttribute("class", "abilityleftclickcss");
+    document.getElementsByClassName("abilityleftclickcss").innerHTML = "MB1";
+
+    const abilityrightclick = document.createElement("div");
+    abilityrightclick.setAttribute("class", "abilityrightclickcss");
+    
+    const mb1text = document.createTextNode("MB1");
+    const mb2text = document.createTextNode("MB2");
+
+    abilityleftclick.appendChild(mb1text);
+    abilityrightclick.appendChild(mb2text);
+
+    abilitycontainerli.appendChild(abilityleftclick);
+    abilitycontainerli.appendChild(abilityrightclick);
+    
+    abilitycontainerul.appendChild(abilitycontainerli);
+
+    gamewindow.appendChild(healthbar);
+    gamewindow.appendChild(abilitycontainerul);
 }
 function uniKeyCode(event) {
     var key = event.keyCode;
