@@ -105,19 +105,29 @@ body {
     height: 6vw;
     width: 6vw;
     margin-left:6px;
-    background-color: gray;
     border-style: solid;
     border-width: 5px; 
     border-color: black;
+    border-radius: 10%;
+
 }
 .abilityrightclickcss{
     height: 6vw;
     width: 6vw;
-    background-color: gray;
     margin-left:6px;
     border-style: solid;
     border-width: 5px; 
     border-color: black;
+    border-radius: 10%;
+}
+.abilitycss{
+    height: 6vw;
+    width: 6vw;
+    margin-left:6px;
+    border-style: solid;
+    border-width: 5px; 
+    border-color: black;
+    border-radius: 10%;
 }
 #map {
     display: none;

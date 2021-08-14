@@ -98,19 +98,49 @@ function initializeUI(){
     const abilityrightclick = document.createElement("div");
     abilityrightclick.setAttribute("class", "abilityrightclickcss");
     
+    const ability1 = document.createElement("div");
+    ability1.setAttribute("class", "abilitycss");
+    ability1.onclick = function() { ability1function() };
+
+    const ability2 = document.createElement("div");
+    ability2.setAttribute("class", "abilitycss");
+    
+    const ability3 = document.createElement("div");
+    ability3.setAttribute("class", "abilitycss");
+
     const mb1text = document.createTextNode("MB1");
     const mb2text = document.createTextNode("MB2");
+    const ability1text = document.createTextNode("1");
+    const ability2text = document.createTextNode("2");
+    const ability3text = document.createTextNode("3");
+
 
     abilityleftclick.appendChild(mb1text);
     abilityrightclick.appendChild(mb2text);
 
+    ability1.appendChild(ability1text);
+    ability2.appendChild(ability2text);
+    ability3.appendChild(ability3text);
+
+
     abilitycontainerli.appendChild(abilityleftclick);
     abilitycontainerli.appendChild(abilityrightclick);
+
+    abilitycontainerli.appendChild(ability1);
+    abilitycontainerli.appendChild(ability2);
+    abilitycontainerli.appendChild(ability3);
     
     abilitycontainerul.appendChild(abilitycontainerli);
 
     gamewindow.appendChild(healthbar);
     gamewindow.appendChild(abilitycontainerul);
+}
+
+function ability1function(){
+    playerMs = 20;
+    setTimeout(() => {
+        playerMs = 10;
+    }, 2000);
 }
 function uniKeyCode(event) {
     var key = event.keyCode;
