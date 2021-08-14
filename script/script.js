@@ -146,5 +146,4 @@ function playerMovement() {
 
 
     document.querySelector("#cuck").style.transform = "rotate(" + Math.atan2((pastmousexchords - 930),-(pastmouseychords -480)) + "rad)";
-
 }
