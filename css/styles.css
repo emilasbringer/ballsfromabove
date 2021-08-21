@@ -98,9 +98,11 @@ body {
     left:30%;
     top:78vh;
 }
+
 .abilitycontainerlicss{
     display: flex;
 }
+
 .abilityleftclickcss{
     height: 6vw;
     width: 6vw;
@@ -109,8 +111,8 @@ body {
     border-width: 5px; 
     border-color: black;
     border-radius: 10%;
-
 }
+
 .abilityrightclickcss{
     height: 6vw;
     width: 6vw;
@@ -120,6 +122,7 @@ body {
     border-color: black;
     border-radius: 10%;
 }
+
 .abilitycss{
     height: 6vw;
     width: 6vw;
@@ -128,6 +131,11 @@ body {
     border-width: 5px; 
     border-color: black;
     border-radius: 10%;
+}
+
+.abilityimagecss{
+    width:6vw;
+    border-radius: 5%;
 }
 #map {
     display: none;

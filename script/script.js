@@ -101,6 +101,10 @@ function initializeUI(){
     const ability1 = document.createElement("div");
     ability1.setAttribute("class", "abilitycss");
     ability1.onclick = function() { ability1function() };
+    const ability1image = document.createElement("img");
+    ability1image.setAttribute("class", "abilityimagecss");
+    ability1image.setAttribute("src", "/assets/abilityimages/hermesboots.png");
+
 
     const ability2 = document.createElement("div");
     ability2.setAttribute("class", "abilitycss");
@@ -118,9 +122,10 @@ function initializeUI(){
     abilityleftclick.appendChild(mb1text);
     abilityrightclick.appendChild(mb2text);
 
-    ability1.appendChild(ability1text);
     ability2.appendChild(ability2text);
     ability3.appendChild(ability3text);
+
+    ability1.appendChild(ability1image);
 
 
     abilitycontainerli.appendChild(abilityleftclick);
