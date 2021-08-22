@@ -20,6 +20,7 @@ var keypresseddown;
 var time;
 var deltatime;
 var playerMs = 5;
+var playerability1activated = false;
 var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
 
 var movedirection = [true,false,false,false,false];
@@ -100,9 +101,11 @@ function initializeUI(){
     
     const ability1 = document.createElement("div");
     ability1.setAttribute("class", "abilitycss");
+    ability1.setAttribute("id", "ability1id");
     ability1.onclick = function() { ability1function() };
     const ability1image = document.createElement("img");
     ability1image.setAttribute("class", "abilityimagecss");
+    ability1image.setAttribute("id", "ability1imageid");
     ability1image.setAttribute("src", "/assets/abilityimages/hermesboots.png");
 
 
@@ -141,11 +144,19 @@ function initializeUI(){
     gamewindow.appendChild(abilitycontainerul);
 }
 
-function ability1function(){
+function ability1function(ability1image){
+    if(playerability1activated == false){
     playerMs = 20;
+    playerability1activated = true;
+    document.getElementById("ability1imageid").classList.add("abilitycooldownanimation");
     setTimeout(() => {
         playerMs = 10;
     }, 2000);
+    setTimeout(() => {
+        playerability1activated = false;
+        document.getElementById("ability1imageid").classList.remove("abilitycooldownanimation");
+    }, 4000);
+    }
 }
 function uniKeyCode(event) {
     var key = event.keyCode;

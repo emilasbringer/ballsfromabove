@@ -166,3 +166,16 @@ body {
     padding-top: 50px;
 }
 
+/* Animations */
+.abilitycooldownanimation{
+    animation: animationcooldown 4s;
+    border-width:1px;
+    border-color: red;
+    border-style: solid;
+
+}
+@keyframes animationcooldown {
+    from{opacity: 0;}
+    to{opacity: 1;}
+
+}
