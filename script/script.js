@@ -12,6 +12,10 @@ var usernameInput;
 var passwordInput;
 var username = "";
 var password = "";
+var isclasschosen = false;
+var playerclasswarrior = false;
+var playerclassarcher = false;
+var playerclassassassin = false;
 var tick = 0;
 var mapcords = [0,0];
 var pastmousexchords;
@@ -47,7 +51,14 @@ function checklogin() {
     passwordInput = document.getElementById('passwordid').value;
     
     if (usernameInput == username && passwordInput == password) {
-        gamestate = 1;
+        if(isclasschosen == false){
+
+            document.getElementById("titlescreenid").remove();
+            initializeclassselection();
+        }
+        if(classchosen == true){
+            gamestate = 1;
+        }
     }
     console.log("The gamestate is " + gamestate)
     if (gamestate == 1) {
@@ -80,7 +91,45 @@ function initializeElements() {
     playerhead.appendChild(playerCharacterTexture);
     playerCharacterTexture.style.width = "100%";
 }
+function initializeclassselection(){
 
+    const classselectionwindow = document.createElement("div");
+    classselectionwindow.setAttribute("class", "classselectionwindowcss");
+    classselectionwindow.setAttribute("id", "classselectionwindowid");
+    gamewindow.appendChild(classselectionwindow);
+
+    const class1button = document.createElement("button");
+    class1button.setAttribute("class", "classselectioncss");
+    class1button.onclick = function() { selectwarrior() };
+
+    const class2button = document.createElement("button");
+    class2button.setAttribute("class", "classselectioncss");
+    class2button.onclick = function() { selectarcher() };
+
+    const class3button = document.createElement("button");
+    class3button.setAttribute("class", "classselectioncss");
+    class3button.onclick = function() { selectassassin() };
+
+    const class4button = document.createElement("button");
+    class4button.setAttribute("class", "classselectioncss");
+    class4button.onclick = function() { selecttank() };
+
+    const warriortext = document.createTextNode("Warrior");
+    const archertext = document.createTextNode("Archer");
+    const assassintext = document.createTextNode("Assassin");
+    const tanktext = document.createTextNode("Tank");
+
+    class1button.appendChild(warriortext);
+    class2button.appendChild(archertext);
+    class3button.appendChild(assassintext);
+    class4button.appendChild(tanktext);
+
+    classselectionwindow.appendChild(class1button);
+    classselectionwindow.appendChild(class2button);
+    classselectionwindow.appendChild(class3button);
+    classselectionwindow.appendChild(class4button);
+
+}
 function initializeUI(){
 
     const healthbar = document.createElement("div");
@@ -145,18 +194,28 @@ function initializeUI(){
 }
 
 function ability1function(ability1image){
-    if(playerability1activated == false){
-    playerMs = 20;
-    playerability1activated = true;
-    document.getElementById("ability1imageid").classList.add("abilitycooldownanimation");
-    setTimeout(() => {
-        playerMs = 10;
-    }, 2000);
-    setTimeout(() => {
-        playerability1activated = false;
-        document.getElementById("ability1imageid").classList.remove("abilitycooldownanimation");
-    }, 4000);
+    if(playerclasswarrior == true){
+        if(playerability1activated == false){
+        playerMs = 20;
+        playerability1activated = true;
+        document.getElementById("ability1imageid").classList.add("abilitycooldownanimation");
+        setTimeout(() => {
+            playerMs = 10;
+        }, 2000);
+        }
+        setTimeout(() => {
+            playerability1activated = false;
+            document.getElementById("ability1imageid").classList.remove("abilitycooldownanimation");
+        }, 4000);
+    
     }
+}
+function selectwarrior(){
+    isclasschosen = true;
+    playerclasswarrior = true;
+    gamestate = 1;
+    document.getElementById("classselectionwindowid").remove();
+    initialize();
 }
 function uniKeyCode(event) {
     var key = event.keyCode;
