@@ -166,7 +166,6 @@ function initializeUI(){
 
     const mb1text = document.createTextNode("MB1");
     const mb2text = document.createTextNode("MB2");
-    const ability1text = document.createTextNode("1");
     const ability2text = document.createTextNode("2");
     const ability3text = document.createTextNode("3");
 
