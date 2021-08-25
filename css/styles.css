@@ -181,5 +181,8 @@ body {
 .classselectioncss{
     width: 100px;
     height: 100px;
-    margin: 8vw;
+    margin: 2vw;
+}
+.classselectionwindowcss{
+    width:20vw;
 }
