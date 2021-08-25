@@ -16,6 +16,7 @@ var isclasschosen = false;
 var playerclasswarrior = false;
 var playerclassarcher = false;
 var playerclassassassin = false;
+var playerclasstank = false;
 var tick = 0;
 var mapcords = [0,0];
 var pastmousexchords;
@@ -52,24 +53,21 @@ function checklogin() {
     
     if (usernameInput == username && passwordInput == password) {
         if(isclasschosen == false){
-
             document.getElementById("titlescreenid").remove();
             initializeclassselection();
         }
         if(classchosen == true){
-            gamestate = 1;
+            document.getElementById("titlescreenid").remove();
+            initialize();
         }
-    }
-    console.log("The gamestate is " + gamestate)
-    if (gamestate == 1) {
-        document.getElementById("titlescreenid").remove();
-        initialize();
-        isRunning = true;
-        console.log(isRunning);
     }
 }
 
 function initialize() {
+    gamestate = 1;
+    isRunning = true;
+    console.log(isRunning);
+    document.getElementById("classselectionwindowid").remove();
     console.log("initilizing game!");
     initializeElements();
     initializeUI();
@@ -212,8 +210,21 @@ function ability1function(ability1image){
 function selectwarrior(){
     isclasschosen = true;
     playerclasswarrior = true;
-    gamestate = 1;
-    document.getElementById("classselectionwindowid").remove();
+    initialize();
+}
+function selectarcher(){
+    isclasschosen = true;
+    playerclassarcher = true;
+    initialize();
+}
+function selectassassin(){
+    isclasschosen = true;
+    playerclassassassin = true;
+    initialize();
+}
+function selecttank(){
+    isclasschosen = true;
+    playerclasstank = true;
     initialize();
 }
 

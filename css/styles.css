@@ -177,7 +177,6 @@ body {
 @keyframes animationcooldown {
     from{opacity: 0;}
     to{opacity: 0.8;}
-
 }
 .classselectioncss{
     width: 100px;
