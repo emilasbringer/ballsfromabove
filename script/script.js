@@ -210,6 +210,7 @@ function ability1function(ability1image){
     
     }
 }
+<<<<<<< Updated upstream
 function selectwarrior(){
     isclasschosen = true;
     playerclasswarrior = true;
@@ -217,6 +218,10 @@ function selectwarrior(){
     document.getElementById("classselectionwindowid").remove();
     initialize();
 }
+=======
+
+//keyboard input here
+>>>>>>> Stashed changes
 function uniKeyCode(event) {
     var key = event.keyCode;
     if(key == 87) {movedirection[1] = true; movedirection[0] = false;};
@@ -225,6 +230,8 @@ function uniKeyCode(event) {
     if(key == 68) {movedirection[4] = true; movedirection[0] = false;};
     if(key == 16) {playerMs = 14};
     if(key == 49) {ability1function()};
+    if(key == 50);
+    if(key == 51);
 }
 
 function logkeyup(event) {
