@@ -165,6 +165,7 @@ function uniKeyCode(event) {
     if(key == 65) {movedirection[3] = true; movedirection[0] = false;};
     if(key == 68) {movedirection[4] = true; movedirection[0] = false;};
     if(key == 16) {playerMs = 14};
+    if(key == 49) {ability1function()};
 }
 
 function logkeyup(event) {
