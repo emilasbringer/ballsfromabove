@@ -144,7 +144,10 @@ function initializeUI(){
     const abilityleftclick = document.createElement("div");
     abilityleftclick.setAttribute("class", "abilityleftclickcss");
     document.getElementsByClassName("abilityleftclickcss").innerHTML = "MB1";
-    abilityleftclick.setAttribute("src", "/assets/abilityimages/fist.png");
+    const abilityleftclickimage = document.createElement("img");
+    abilityleftclickimage.setAttribute("src", "/assets/abilityimages/fist.png");
+    abilityleftclickimage.setAttribute("class", "abilityimagecss");
+    abilityleftclickimage.setAttribute("id", "abilityleftclickimageid");
 
     const abilityrightclick = document.createElement("div");
     abilityrightclick.setAttribute("class", "abilityrightclickcss");
@@ -165,20 +168,18 @@ function initializeUI(){
     const ability3 = document.createElement("div");
     ability3.setAttribute("class", "abilitycss");
 
-    const mb1text = document.createTextNode("MB1");
     const mb2text = document.createTextNode("MB2");
-    const ability1text = document.createTextNode("1");
     const ability2text = document.createTextNode("2");
     const ability3text = document.createTextNode("3");
 
 
-    abilityleftclick.appendChild(mb1text);
     abilityrightclick.appendChild(mb2text);
 
     ability2.appendChild(ability2text);
     ability3.appendChild(ability3text);
 
     ability1.appendChild(ability1image);
+    abilityleftclick.appendChild(abilityleftclickimage);
 
 
     abilitycontainerli.appendChild(abilityleftclick);
