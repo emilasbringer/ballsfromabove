@@ -16,7 +16,6 @@ var isclasschosen = false;
 var playerclasswarrior = false;
 var playerclassarcher = false;
 var playerclassassassin = false;
-var playerclasstank = false;
 var tick = 0;
 var mapcords = [0,0];
 var pastmousexchords;
@@ -26,9 +25,10 @@ var time;
 var deltatime;
 var playerMs = 5;
 var playerability1activated = false;
-var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-
+var goblinnumber = 0;
 var movedirection = [true,false,false,false,false];
+playerChords = [0,0];
+var goblinEnemy = {healthpoints:"100",movespeed:"10",knockbackresistance:"10",attackdamage:"5"};
 
 
 function uniKeyCode(event) {
@@ -57,17 +57,19 @@ function checklogin() {
             initializeclassselection();
         }
         if(classchosen == true){
-            document.getElementById("titlescreenid").remove();
-            initialize();
+            gamestate = 1;
         }
+    }
+    console.log("The gamestate is " + gamestate)
+    if (gamestate == 1) {
+        document.getElementById("titlescreenid").remove();
+        initialize();
+        isRunning = true;
+        console.log(isRunning);
     }
 }
 
 function initialize() {
-    gamestate = 1;
-    isRunning = true;
-    console.log(isRunning);
-    document.getElementById("classselectionwindowid").remove();
     console.log("initilizing game!");
     initializeElements();
     initializeUI();
@@ -142,6 +144,7 @@ function initializeUI(){
     const abilityleftclick = document.createElement("div");
     abilityleftclick.setAttribute("class", "abilityleftclickcss");
     document.getElementsByClassName("abilityleftclickcss").innerHTML = "MB1";
+    abilityleftclick.setAttribute("src", "/assets/abilityimages/fist.png");
 
     const abilityrightclick = document.createElement("div");
     abilityrightclick.setAttribute("class", "abilityrightclickcss");
@@ -164,6 +167,7 @@ function initializeUI(){
 
     const mb1text = document.createTextNode("MB1");
     const mb2text = document.createTextNode("MB2");
+    const ability1text = document.createTextNode("1");
     const ability2text = document.createTextNode("2");
     const ability3text = document.createTextNode("3");
 
@@ -210,21 +214,8 @@ function ability1function(ability1image){
 function selectwarrior(){
     isclasschosen = true;
     playerclasswarrior = true;
-    initialize();
-}
-function selectarcher(){
-    isclasschosen = true;
-    playerclassarcher = true;
-    initialize();
-}
-function selectassassin(){
-    isclasschosen = true;
-    playerclassassassin = true;
-    initialize();
-}
-function selecttank(){
-    isclasschosen = true;
-    playerclasstank = true;
+    gamestate = 1;
+    document.getElementById("classselectionwindowid").remove();
     initialize();
 }
 
@@ -237,7 +228,7 @@ function uniKeyCode(event) {
     if(key == 68) {movedirection[4] = true; movedirection[0] = false;};
     if(key == 16) {playerMs = 14};
     if(key == 49) {ability1function()};
-    if(key == 50);
+    if(key == 50) {console.log(goblinEnemy)};
     if(key == 51);
 }
 
@@ -263,7 +254,13 @@ function playerMovement() {
     var moveammountx = mapcords[0];
     var moveammounty = mapcords[1];
     map.style.transform = "translate(" + moveammountx + "px, " + moveammounty + "px)";
+   playerChords[0] += playerMs;
+   playerChords[1] += playerMs;
+   console.log(playerChords[0]+ " " + playerChords[1]);
 
+    document.querySelector("#cuck").style.transform = "rotate(" + Math.atan2((pastmousexchords - (window.innerWidth/2) ),-(pastmouseychords - (window.innerHeight/2))) + "rad)";
+}
 
-    document.querySelector("#cuck").style.transform = "rotate(" + Math.atan2((pastmousexchords - 930),-(pastmouseychords -480)) + "rad)";
+function createGoblinEnemy() {
+   document.createElement("div");
 }
