@@ -137,6 +137,16 @@ body {
     width:6vw;
     border-radius: 5%;
 }
+
+.classselectioncss{
+    width: 15vw;
+    height: 8vw;
+    margin: 2vw;
+}
+.classselectionwindowcss{
+    width:20vw;
+}
+
 #map {
     display: none;
 }
@@ -177,12 +187,4 @@ body {
 @keyframes animationcooldown {
     from{opacity: 0;}
     to{opacity: 0.8;}
-}
-.classselectioncss{
-    width: 15vw;
-    height: 8vw;
-    margin: 2vw;
-}
-.classselectionwindowcss{
-    width:20vw;
 }
